@@ -3,15 +3,15 @@
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
-    float maxX;
-    float minX;
-    float minY;
-    float maxY;
+    float maxX=1000;
+    float minX=-100;
+    float minY=-100;
+    float maxY=1000;
 
     float posX;
     float posY;
 
-    std::pair<std::pair<float, float>, std::pair<float, float>> lines[10];
+    std::pair<std::pair<float, float>, std::pair<float, float>> lines[17];
     lines[0]=std::make_pair(std::make_pair(0.3961737,0.32721),std::make_pair(0.3897823,0.7537717));
     lines[1]=std::make_pair(std::make_pair(1.659773,0.7332771),std::make_pair(0.3897823,0.7537717));
     lines[2]=std::make_pair(std::make_pair(1.659773,0.7332771),std::make_pair(1.65338,1.358256));
@@ -30,14 +30,18 @@ int main() {
     lines[15]=std::make_pair(std::make_pair(0.2736665,0.3481684),std::make_pair(0.2731338,0.8594832));
     lines[16]=std::make_pair(std::make_pair(0.2736665,0.3481684),std::make_pair(0.3859036,0.3441134));
 
-    int map[100][100]={0};
-    float stepX=2/100;
-    float stepY=2/100;
+    int const x=100;
+    int const y=100;
+    int map[x][y]={0};
+    float stepX=4.0/x;
+    float stepY=4.0/y;
+    posX=-2;
+    posY=-2;
 
-    for(int i=0;i<100;i++){
-        for(int j=0;j<100;j++){
+    for(auto & i : map){
+        for(int & j : i){
             if(posX<minX || posX>maxX || posY>maxY|| posY<minY){
-                map[i][j]=1;
+                j=1;
             }else{
                 int linesAtRigth = 0;
                 for(std::pair<std::pair<float, float>, std::pair<float, float>> line :lines){
@@ -49,13 +53,14 @@ int main() {
                     }
                 }
                 if(linesAtRigth%2==1){
-                    map[i][j]=1;
+                    j=1;
                 }
             }
             posX+=stepX;
-            cout<<map[i][j];
+            std::cout<<j;
         }
-        posX=0;
+        std::cout<<"\n";
+        posX=-2;
         posY+=stepY;
     }
 
