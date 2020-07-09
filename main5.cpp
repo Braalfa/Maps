@@ -11,13 +11,19 @@
 int main5() {
     std::cout << "Hello, World!" << std::endl;
 
-    float maxX=100;
-    float minX=-100;
-    float minY=-100;
-    float maxY=100;
-
     float posX;
     float posY;
+
+    float const posXini=-2.559767-0.04046583/2;
+    posY=3.413361+0.05327868/2;
+
+    posX=posXini;
+    int const x=100;
+    int const y=100;
+    int map[x][y]={0};
+    float stepX=(float )(2.559765+0.04047036/2-posX)/x;
+    float stepY=(float )-(3.413362+0.05327725/2+posY)/y;
+
 
     std::pair<std::pair<float, float>, std::pair<float, float>> boxes[9];
     boxes[0]=std::make_pair(std::make_pair(-0.6067969,-2.221033),std::make_pair(0.07106328,2.388376));
@@ -51,21 +57,8 @@ int main5() {
     line1[7]=std::make_pair(std::make_pair(1.780526,0.01554718),std::make_pair(0.7219454,-1.043258));
     line1[8]=std::make_pair(std::make_pair(1.780526,0.01554718),std::make_pair(1.924579,0));
 
-    float const posXini=-7;
-    posY=7;
-
-    posX=posXini;
-    int const x=100;
-    int const y=100;
-    int map[x][y]={0};
-    float stepX=(float )(7-posX)/x;
-    float stepY=(float )-(7+posY)/y;
-
     for(auto & i : map){
         for(int & j : i){
-            if(posX<minX || posX>maxX || posY>maxY|| posY<minY){
-                j=1;
-            }else{
                 for(std::pair<std::pair<float, float>, std::pair<float, float>> box :boxes){
                     //Se chequea si esta adentro
                     if(posX>box.first.first-box.second.first/2
@@ -101,7 +94,7 @@ int main5() {
                         j=1;
                     }
                 }
-            }
+
             posX+=stepX;
             std::cout<<j;
         }

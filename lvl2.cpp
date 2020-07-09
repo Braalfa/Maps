@@ -6,13 +6,18 @@ int main() {
 
 
 
-    float maxX=100;
-    float minX=-100;
-    float minY=-100;
-    float maxY=100;
-
     float posX;
     float posY;
+
+    float const posXini=-2.577373;
+    posY=3.407662;
+
+    posX=posXini;
+    int const x=100;
+    int const y=100;
+    int map[x][y]={0};
+    float stepX=(float )(2.543712-posX)/x;
+    float stepY=(float )-(3.435781+posY)/y;
 
     std::pair<std::pair<float, float>, std::pair<float, float>> boxes[18];
     boxes[0]=std::make_pair(std::make_pair(1.201707,2.25139),std::make_pair(1.405395,0.2905586));
@@ -34,32 +39,48 @@ int main() {
     boxes[16]=std::make_pair(std::make_pair(-0.188219,-0.8542247),std::make_pair(0.7104323,0.3339951));
     boxes[17]=std::make_pair(std::make_pair(-0.7022017,-1.201706),std::make_pair(0.3774292,0.3339945));
 
-    float const posXini=-4;
-    posY=4;
 
-    posX=posXini;
-    int const x=100;
-    int const y=100;
-    int map[x][y]={0};
-    float stepX=(float )(4-posX)/x;
-    float stepY=(float )-(4+posY)/y;
+    std::pair<std::pair<float, float>, std::pair<float, float>> lines[13];
+    lines[0]=std::make_pair(std::make_pair(0.1150571,3.391532),std::make_pair(-0.1868066,3.391085));
+    lines[1]=std::make_pair(std::make_pair(-0.1699801,2.818174),std::make_pair(-0.1868066,3.391085));
+    lines[2]=std::make_pair(std::make_pair(-0.1699801,2.818174),std::make_pair(-2.320089,2.799421));
+    lines[3]=std::make_pair(std::make_pair(-2.347638,-3.265329),std::make_pair(-2.320089,2.799421));
+    lines[4]=std::make_pair(std::make_pair(-2.347638,-3.265329),std::make_pair(2.417377,-3.268729));
+    lines[5]=std::make_pair(std::make_pair(2.417881,2.833863),std::make_pair(2.417377,-3.268729));
+    lines[6]=std::make_pair(std::make_pair(2.417881,2.833863),std::make_pair(0.1525626,2.830747));
+    lines[7]=std::make_pair(std::make_pair(0.1449711,3.401335),std::make_pair(0.1525626,2.830747));
+    lines[8]=std::make_pair(std::make_pair(0.1449711,3.401335),std::make_pair(2.533709,3.407662));
+    lines[9]=std::make_pair(std::make_pair(2.543712,-3.40977),std::make_pair(2.533709,3.407662));
+    lines[10]=std::make_pair(std::make_pair(2.543712,-3.40977),std::make_pair(-2.577373,-3.435781));
+    lines[11]=std::make_pair(std::make_pair(-2.561372,3.418164),std::make_pair(-2.577373,-3.435781));
+    lines[12]=std::make_pair(std::make_pair(-2.561372,3.418164),std::make_pair(-0.2059028,3.421815));
+
 
     for(auto & i : map){
         for(int & j : i){
-            if(posX<minX || posX>maxX || posY>maxY|| posY<minY){
-                j=1;
-            }else{
-                for(std::pair<std::pair<float, float>, std::pair<float, float>> box :boxes){
-                    //Se chequea si esta adentro
-                    if(posX>box.first.first-box.second.first/2
-                       && posX<box.first.first+box.second.first/2
-                       && posY>box.first.second-box.second.second/2
-                       && posY<box.first.second+box.second.second/2
-                            ){
-                        j=1;
-                    }
+            for(std::pair<std::pair<float, float>, std::pair<float, float>> box :boxes){
+                //Se chequea si esta adentro
+                if(posX>box.first.first-box.second.first/2
+                   && posX<box.first.first+box.second.first/2
+                   && posY>box.first.second-box.second.second/2
+                   && posY<box.first.second+box.second.second/2
+                        ){
+                    j=1;
                 }
             }
+            int linesAtRigth = 0;
+            for(std::pair<std::pair<float, float>, std::pair<float, float>> line :lines){
+                //Se chequea si esta a la derecha
+                if((line.first.first+line.second.first)/2>posX &&
+                   ((line.first.second<posY && line.second.second>posY)
+                    || (line.first.second>posY && line.second.second<posY))){
+                    linesAtRigth++;
+                }
+            }
+            if(linesAtRigth%2==1){
+                j=1;
+            }
+
             posX+=stepX;
             std::cout<<j;
         }
