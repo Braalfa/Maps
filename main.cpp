@@ -47,9 +47,7 @@ int main() {
                 map[i][j]=1;
             }else{
                 int linesAtRigth = 0;
-                if(i==52&& j==20 ){
-                    int u=7;
-                }
+
                 for(std::pair<std::pair<float, float>, std::pair<float, float>> line :lines){
                     if((line.first.second<posY && line.second.second>posY)
                        || (line.first.second>posY && line.second.second<posY)){
