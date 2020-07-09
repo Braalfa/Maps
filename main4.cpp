@@ -2,14 +2,15 @@
 // Created by alfab on 7/8/2020.
 //
 
+#include <iostream>
 
-int main() {
+int main4() {
     std::cout << "Hello, World!" << std::endl;
 
-    float maxX;
-    float minX;
-    float minY;
-    float maxY;
+    float maxX=100;
+    float minX=-100;
+    float minY=-100;
+    float maxY=100;
 
     float posX;
     float posY;
@@ -29,12 +30,19 @@ int main() {
     boxes[11]=std::make_pair(std::make_pair(-1.455079,-1.0431),std::make_pair(0.2512989,1.427833));
     boxes[12]=std::make_pair(std::make_pair(-1.981012,-1.192115),std::make_pair(1.197977,0.3233733));
 
-    int map[100][100]={0};
-    float stepX=2/100;
-    float stepY=2/100;
+    float const posXini=-3;
+    posY=2.5;
 
-    for(int i=0;i<100;i++){
-        for(int j=0;j<100;j++){
+    posX=posXini;
+    int const x=100;
+    int const y=100;
+    int map[x][y]={0};
+    float stepX=(float )(2-posX)/x;
+    float stepY=(float )-(2.6+posY)/y;
+
+
+    for(auto & i : map){
+        for(int & j : i){
             if(posX<minX || posX>maxX || posY>maxY|| posY<minY){
                 j=1;
             }else{
@@ -50,9 +58,10 @@ int main() {
                 }
             }
             posX+=stepX;
-            cout<<j;
+            std::cout<<j;
         }
-        posX=0;
+        posX=posXini;
+        std::cout<<"\n";
         posY+=stepY;
     }
 

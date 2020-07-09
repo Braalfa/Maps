@@ -1,5 +1,5 @@
 #include <iostream>
-int main() {
+int main3() {
     std::cout << "Hello, World!" << std::endl;
 
 
@@ -12,7 +12,7 @@ int main() {
     float posX;
     float posY;
 
-    std::pair<std::pair<float, float>, std::pair<float, float>> boxes[12];
+    std::pair<std::pair<float, float>, std::pair<float, float>> boxes[13];
     boxes[0]=std::make_pair(std::make_pair(0,-3.294635),std::make_pair(5.16,0.2907293));
     boxes[1]=std::make_pair(std::make_pair(2.501808,-0.8280637),std::make_pair(0.1563845,5.223873));
     boxes[2]=std::make_pair(std::make_pair(-2.510544,0),std::make_pair(0.1741481,6.88));
@@ -27,13 +27,15 @@ int main() {
     boxes[11]=std::make_pair(std::make_pair(-1.378481,2.585968),std::make_pair(1.777272,0.3083477));
     boxes[12]=std::make_pair(std::make_pair(-1.015998,3.423958),std::make_pair(3.0138,0.03334141));
 
+    float const posXini=-5;
+    posY=5;
+
+    posX=posXini;
     int const x=100;
     int const y=100;
     int map[x][y]={0};
-    float stepX=4.0/x;
-    float stepY=4.0/y;
-    posX=-2;
-    posY=-2;
+    float stepX=(float )(5-posX)/x;
+    float stepY=(float )-(5+posY)/y;
 
     for(auto & i : map){
         for(int & j : i){
@@ -52,11 +54,13 @@ int main() {
                 }
             }
             posX+=stepX;
+
             std::cout<<j;
         }
         std::cout<<"\n";
-        posX=-2;
+        posX=posXini;
         posY+=stepY;
+
     }
 
     return 0;
