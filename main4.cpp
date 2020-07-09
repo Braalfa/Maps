@@ -40,15 +40,14 @@ int main() {
             }else{
                 int linesAtRigth = 0;
                 for(std::pair<std::pair<float, float>, std::pair<float, float>> line :lines){
-                    //Se chequea si esta a la derecha
-                    if((line.first.first+line.second.first)/2>posX &&
-                       ((line.first.second<posY && line.second.second>posY)
-                        || (line.first.second>posY && line.second.second<posY))){
-                        linesAtRigth++;
+                    //Se chequea si esta adentro
+                    if(posX>line.first.first-line.second.first/2
+                        && posX<line.first.first+line.second.first/2
+                        && posY>line.first.second-line.second.second/2
+                        && posY<line.first.second+line.second.second/2
+                        ){
+                        map[i][j]=1;
                     }
-                }
-                if(linesAtRigth%2==1){
-                    map[i][j]=1;
                 }
             }
             posX+=stepX;
