@@ -36,7 +36,7 @@ int main() {
     for(int i=0;i<100;i++){
         for(int j=0;j<100;j++){
             if(posX<minX || posX>maxX || posY>maxY|| posY<minY){
-                map[i][j]=1;
+                j=1;
             }else{
                 for(std::pair<std::pair<float, float>, std::pair<float, float>> box :boxes){
                     //Se chequea si esta adentro
@@ -45,12 +45,12 @@ int main() {
                         && posY>box.first.second-box.second.second/2
                         && posY<box.first.second+box.second.second/2
                         ){
-                        map[i][j]=1;
+                        j=1;
                     }
                 }
             }
             posX+=stepX;
-            cout<<map[i][j];
+            cout<<j;
         }
         posX=0;
         posY+=stepY;
