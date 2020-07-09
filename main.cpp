@@ -12,7 +12,23 @@ int main() {
     float posY;
 
     std::pair<std::pair<float, float>, std::pair<float, float>> lines[10];
-    lines[1]=std::make_pair(std::make_pair(1,2),std::make_pair(4,5));
+    lines[0]=std::make_pair(std::make_pair(0.3961737,0.32721),std::make_pair(0.3897823,0.7537717));
+    lines[1]=std::make_pair(std::make_pair(1.659773,0.7332771),std::make_pair(0.3897823,0.7537717));
+    lines[2]=std::make_pair(std::make_pair(1.659773,0.7332771),std::make_pair(1.65338,1.358256));
+    lines[3]=std::make_pair(std::make_pair(-1.191897,1.382526),std::make_pair(1.65338,1.358256));
+    lines[4]=std::make_pair(std::make_pair(-1.191897,1.382526),std::make_pair(-1.179603,0.040144));
+    lines[5]=std::make_pair(std::make_pair(0.2771788,0.04425133),std::make_pair(-1.179603,0.040144));
+    lines[6]=std::make_pair(std::make_pair(0.2771788,0.04425133),std::make_pair(0.2791546,-0.5461569));
+    lines[7]=std::make_pair(std::make_pair(0.2791546,-0.5461569),std::make_pair(0.2791546,-0.5461569));
+    lines[8]=std::make_pair(std::make_pair(0.2791546,-0.5461569),std::make_pair(0.4009692,-0.5460777));
+    lines[9]=std::make_pair(std::make_pair(0.4080485,0.1176059),std::make_pair(0.4009692,-0.5460777));
+    lines[10]=std::make_pair(std::make_pair(0.4080485,0.1176059),std::make_pair(-1.060647,0.1253159));
+    lines[11]=std::make_pair(std::make_pair(-1.047301,1.297969),std::make_pair(-1.060647,0.1253159));
+    lines[12]=std::make_pair(std::make_pair(-1.047301,1.297969),std::make_pair(1.523449,1.305332));
+    lines[13]=std::make_pair(std::make_pair(1.549175,0.8527526),std::make_pair(1.523449,1.305332));
+    lines[14]=std::make_pair(std::make_pair(1.549175,0.8527526),std::make_pair(0.2731338,0.8594832));
+    lines[15]=std::make_pair(std::make_pair(0.2736665,0.3481684),std::make_pair(0.2731338,0.8594832));
+    lines[16]=std::make_pair(std::make_pair(0.2736665,0.3481684),std::make_pair(0.3859036,0.3441134));
 
     int map[100][100]={0};
     float stepX=2/100;
@@ -37,9 +53,11 @@ int main() {
                 }
             }
             posX+=stepX;
+            cout<<map[i][j];
         }
         posX=0;
         posY+=stepY;
     }
+
     return 0;
 }
