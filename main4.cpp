@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-int main() {
+int main4() {
     std::cout << "Hello, World!" << std::endl;
 
     float posX;
