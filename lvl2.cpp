@@ -60,10 +60,10 @@ int main2() {
         for(int & j : i){
             for(std::pair<std::pair<float, float>, std::pair<float, float>> box :boxes){
                 //Se chequea si esta adentro
-                if(posX>box.first.first-box.second.first/2
-                   && posX<box.first.first+box.second.first/2
-                   && posY>box.first.second-box.second.second/2
-                   && posY<box.first.second+box.second.second/2
+                if(posX>=box.first.first-box.second.first/2
+                   && posX<=box.first.first+box.second.first/2
+                   && posY>=box.first.second-box.second.second/2
+                   && posY<=box.first.second+box.second.second/2
                         ){
                     j=1;
                 }
@@ -71,9 +71,9 @@ int main2() {
             int linesAtRigth = 0;
             for(std::pair<std::pair<float, float>, std::pair<float, float>> line :lines){
                 //Se chequea si esta a la derecha
-                if((line.first.first+line.second.first)/2>posX &&
-                   ((line.first.second<posY && line.second.second>posY)
-                    || (line.first.second>posY && line.second.second<posY))){
+                if((line.first.first+line.second.first)/2>=posX &&
+                   ((line.first.second<=posY && line.second.second>=posY)
+                    || (line.first.second>=posY && line.second.second<=posY))){
                     linesAtRigth++;
                 }
             }

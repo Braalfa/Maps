@@ -35,10 +35,10 @@ int main3() {
         for(int & j : i){
                 for(std::pair<std::pair<float, float>, std::pair<float, float>> box :boxes){
                     //Se chequea si esta adentro
-                    if(posX>box.first.first-box.second.first/2
-                       && posX<box.first.first+box.second.first/2
-                       && posY>box.first.second-box.second.second/2
-                       && posY<box.first.second+box.second.second/2
+                    if(posX>=box.first.first-box.second.first/2
+                       && posX<=box.first.first+box.second.first/2
+                       && posY>=box.first.second-box.second.second/2
+                       && posY<=box.first.second+box.second.second/2
                             ){
                         j=1;
                     }

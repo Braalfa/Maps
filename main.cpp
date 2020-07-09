@@ -43,15 +43,15 @@ int main1() {
 
     for(int i=0;i<x;i++){
         for(int j=0;j<y;j++){
-            if(posX<minX || posX>maxX || posY>maxY|| posY<minY){
+            if(posX<=minX || posX>=maxX || posY>=maxY|| posY<=minY){
                 map[i][j]=1;
             }else{
                 int linesAtRigth = 0;
                 for(std::pair<std::pair<float, float>, std::pair<float, float>> line :lines){
                     //Se chequea si esta a la derecha
-                    if((line.first.first+line.second.first)/2>posX &&
-                       ((line.first.second<posY && line.second.second>posY)
-                        || (line.first.second>posY && line.second.second<posY))){
+                    if((line.first.first+line.second.first)/2>=posX &&
+                       ((line.first.second<=posY && line.second.second>=posY)
+                        || (line.first.second>=posY && line.second.second<=posY))){
                         linesAtRigth++;
                     }
                 }

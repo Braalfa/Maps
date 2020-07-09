@@ -8,7 +8,7 @@
 
 #include <iostream>
 
-int main() {
+int main5() {
     std::cout << "Hello, World!" << std::endl;
 
     float posX;
