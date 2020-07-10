@@ -70,11 +70,14 @@ int main5() {
                     }
                     int linesAtRigth = 0;
                     for(std::pair<std::pair<float, float>, std::pair<float, float>> line :lines){
-                        //Se chequea si esta a la derecha
-                        if((line.first.first+line.second.first)/2>posX &&
-                           ((line.first.second<posY && line.second.second>posY)
-                            || (line.first.second>posY && line.second.second<posY))){
-                            linesAtRigth++;
+                        if((line.first.second<posY && line.second.second>posY)
+                            || (line.first.second>posY && line.second.second<posY)){
+                            double m = (line.second.second-line.first.second)/(line.second.first-line.first.first);
+                            //Se chequea si esta a la derecha
+                            double yprima=m*(posX-line.first.first) + line.first.second;
+                            if((m>0 && posY>yprima) || (m<0 && posY<yprima)){
+                                linesAtRigth++;
+                            }
                         }
                     }
                     if(linesAtRigth%2==1){
@@ -83,11 +86,14 @@ int main5() {
 
                     linesAtRigth = 0;
                     for(std::pair<std::pair<float, float>, std::pair<float, float>> line :line1){
-                        //Se chequea si esta a la derecha
-                        if((line.first.first+line.second.first)/2>posX &&
-                           ((line.first.second<posY && line.second.second>posY)
-                            || (line.first.second>posY && line.second.second<posY))){
-                            linesAtRigth++;
+                        if((line.first.second<posY && line.second.second>posY)
+                           || (line.first.second>posY && line.second.second<posY)){
+                            double m = (line.second.second-line.first.second)/(line.second.first-line.first.first);
+                            //Se chequea si esta a la derecha
+                            double yprima=m*(posX-line.first.first) + line.first.second;
+                            if((m>0 && posY>yprima) || (m<0 && posY<yprima)){
+                                linesAtRigth++;
+                            }
                         }
                     }
                     if(linesAtRigth%2==1){
