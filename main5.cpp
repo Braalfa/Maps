@@ -25,7 +25,7 @@ int main5() {
     float stepY=(float )-(3.413362+0.05327725/2+posY)/y;
 
 
-    std::pair<std::pair<float, float>, std::pair<float, float>> boxes[9];
+    std::pair<std::pair<float, float>, std::pair<float, float>> boxes[10];
     boxes[0]=std::make_pair(std::make_pair(-0.6067969,-2.221033),std::make_pair(0.07106328,2.388376));
     boxes[1]=std::make_pair(std::make_pair(0.6883833,-2.248719),std::make_pair(0.07106304,2.382562));
     boxes[2]=std::make_pair(std::make_pair(2.559765,0),std::make_pair(0.04047036,6.88));
@@ -35,16 +35,12 @@ int main5() {
     boxes[6]=std::make_pair(std::make_pair(-0.7000183,-1.969961),std::make_pair(0.4643056,0.8338289));
     boxes[7]=std::make_pair(std::make_pair(0,-3.413362),std::make_pair(5.16,0.05327725));
     boxes[8]=std::make_pair(std::make_pair(0,3.413361),std::make_pair(5.16,0.05327725));
+    boxes[9]=std::make_pair(std::make_pair(-1.356031,-1.195449),std::make_pair(0.3576695,0.3219833));
 
     std::pair<std::pair<float, float>, std::pair<float, float>> lines[8];
     lines[0]=std::make_pair(std::make_pair(-1.706157,0.0004076004),std::make_pair(-1.955679,-0.01228752));
-    lines[1]=std::make_pair(std::make_pair(-1.935856,-1.042835),std::make_pair(-1.955679,-0.01228752));
-    lines[2]=std::make_pair(std::make_pair(-1.935856,-1.042835),std::make_pair(-1.540004,-1.051228));
-    lines[3]=std::make_pair(std::make_pair(-1.609588,-1.418215),std::make_pair(-1.540004,-1.051228));
-    lines[4]=std::make_pair(std::make_pair(-1.609588,-1.418215),std::make_pair(-1.185571,-1.432022));
-    lines[5]=std::make_pair(std::make_pair(-1.165332,-1.039752),std::make_pair(-1.185571,-1.432022));
-    lines[6]=std::make_pair(std::make_pair(-1.165332,-1.039752),std::make_pair(-0.6262863,-1.034991));
-    lines[7]=std::make_pair(std::make_pair(-0.7378401,-1.023978),std::make_pair(-0.6262863,-1.034991));
+    lines[0]=std::make_pair(std::make_pair(-1.935856,-1.042835),std::make_pair(-1.955679,-0.01228752));
+    lines[0]=std::make_pair(std::make_pair(-1.935856,-1.042835),std::make_pair(-0.6262863,-1.034991));
 
     std::pair<std::pair<float, float>, std::pair<float, float>> line1[9];
     line1[0]=std::make_pair(std::make_pair(1.959759,-0.009638977),std::make_pair(1.961241,-1.025579));
