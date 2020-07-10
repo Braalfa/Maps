@@ -8,7 +8,7 @@
 
 #include <iostream>
 
-int main5() {
+int main() {
     std::cout << "Hello, World!" << std::endl;
 
     float posX;
@@ -37,10 +37,11 @@ int main5() {
     boxes[8]=std::make_pair(std::make_pair(0,3.413361),std::make_pair(5.16,0.05327725));
     boxes[9]=std::make_pair(std::make_pair(-1.356031,-1.195449),std::make_pair(0.3576695,0.3219833));
 
-    std::pair<std::pair<float, float>, std::pair<float, float>> lines[8];
+    std::pair<std::pair<float, float>, std::pair<float, float>> lines[4Todo];
     lines[0]=std::make_pair(std::make_pair(-1.706157,0.0004076004),std::make_pair(-1.955679,-0.01228752));
-    lines[0]=std::make_pair(std::make_pair(-1.935856,-1.042835),std::make_pair(-1.955679,-0.01228752));
-    lines[0]=std::make_pair(std::make_pair(-1.935856,-1.042835),std::make_pair(-0.6262863,-1.034991));
+    lines[1]=std::make_pair(std::make_pair(-1.935856,-1.042835),std::make_pair(-1.955679,-0.01228752));
+    lines[2]=std::make_pair(std::make_pair(-1.935856,-1.042835),std::make_pair(-0.6262863,-1.034991));
+    lines[3]=std::make_pair(std::make_pair(-1.706157,0.0004076004),std::make_pair(-0.6262863,-1.034991));
 
     std::pair<std::pair<float, float>, std::pair<float, float>> line1[9];
     line1[0]=std::make_pair(std::make_pair(1.959759,-0.009638977),std::make_pair(1.961241,-1.025579));
@@ -57,17 +58,17 @@ int main5() {
         for(int & j : i){
                 for(std::pair<std::pair<float, float>, std::pair<float, float>> box :boxes){
                     //Se chequea si esta adentro
-                    if(posX>box.first.first-box.second.first/2
-                       && posX<box.first.first+box.second.first/2
-                       && posY>box.first.second-box.second.second/2
-                       && posY<box.first.second+box.second.second/2
+                    if(posX>=box.first.first-box.second.first/2
+                       && posX<=box.first.first+box.second.first/2
+                       && posY>=box.first.second-box.second.second/2
+                       && posY<=box.first.second+box.second.second/2
                             ){
                         j=1;
                     }
                     int linesAtRigth = 0;
                     for(std::pair<std::pair<float, float>, std::pair<float, float>> line :lines){
-                        if((line.first.second<posY && line.second.second>posY)
-                            || (line.first.second>posY && line.second.second<posY)){
+                        if((line.first.second<=posY && line.second.second>=posY)
+                            || (line.first.second>=posY && line.second.second<=posY)){
                             double m = (line.second.second-line.first.second)/(line.second.first-line.first.first);
                             //Se chequea si esta a la derecha
                             double yprima=m*(posX-line.first.first) + line.first.second;
@@ -82,8 +83,8 @@ int main5() {
 
                     linesAtRigth = 0;
                     for(std::pair<std::pair<float, float>, std::pair<float, float>> line :line1){
-                        if((line.first.second<posY && line.second.second>posY)
-                           || (line.first.second>posY && line.second.second<posY)){
+                        if((line.first.second<=posY && line.second.second>=posY)
+                           || (line.first.second>=posY && line.second.second<=posY)){
                             double m = (line.second.second-line.first.second)/(line.second.first-line.first.first);
                             //Se chequea si esta a la derecha
                             double yprima=m*(posX-line.first.first) + line.first.second;

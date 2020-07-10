@@ -1,6 +1,6 @@
 #include <iostream>
 
-int main() {
+int main1() {
     std::cout << "Hello, World!" << std::endl;
 
     float maxX=1.865802;
