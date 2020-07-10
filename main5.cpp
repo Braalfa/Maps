@@ -37,7 +37,7 @@ int main() {
     boxes[8]=std::make_pair(std::make_pair(0,3.413361),std::make_pair(5.16,0.05327725));
     boxes[9]=std::make_pair(std::make_pair(-1.356031,-1.195449),std::make_pair(0.3576695,0.3219833));
 
-    std::pair<std::pair<float, float>, std::pair<float, float>> lines[4Todo];
+    std::pair<std::pair<float, float>, std::pair<float, float>> lines[4];
     lines[0]=std::make_pair(std::make_pair(-1.706157,0.0004076004),std::make_pair(-1.955679,-0.01228752));
     lines[1]=std::make_pair(std::make_pair(-1.935856,-1.042835),std::make_pair(-1.955679,-0.01228752));
     lines[2]=std::make_pair(std::make_pair(-1.935856,-1.042835),std::make_pair(-0.6262863,-1.034991));
